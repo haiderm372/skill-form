@@ -29,7 +29,7 @@ function App() {
   };
 
   const addTask = () => {
-    if (newTask === "" || newTask.length === 0) {
+    if (newTask.trim() === "" || newTask.trim().length === 0) {
       return;
     }
 
