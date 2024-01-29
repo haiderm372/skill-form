@@ -103,7 +103,7 @@ function App() {
               aria-describedby="basic-addon2"
             />
             <span className="input-group-text" id="basic-addon2">
-              New Task
+              New Skill
             </span>
           </div>
         </div>
