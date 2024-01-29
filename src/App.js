@@ -133,7 +133,13 @@ function App() {
           <div className="px-5 py-5">
             <div className="list">
               {todoList.map((item, key) => {
-                return <Task item={item} deleteTask={() => deleteTask(key)} />;
+                return (
+                  <Task
+                    key={key}
+                    item={item}
+                    deleteTask={() => deleteTask(key)}
+                  />
+                );
               })}
             </div>
           </div>
