@@ -12,8 +12,14 @@ function App() {
   const [newTask, setNewTask] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (event) => {
-    setNewTask(event.target.value);
+  const handleChange = (e) => {
+    const capitalizedValue = e.target.value
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
+    setNewTask(capitalizedValue);
   };
 
   const handleKey = (event) => {
@@ -62,6 +68,11 @@ function App() {
         if (res.status === 200) {
           if (res.data.result) {
             toast.success(res.data.message);
+            if (res.data.data.length !== 0) {
+              res.data.data.map((value) => {
+                return toast.warning(value + " - Already Existed");
+              });
+            }
             setTodoList([]);
           } else {
             toast.error(res.data.message);
