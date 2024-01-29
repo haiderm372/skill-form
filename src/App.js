@@ -14,7 +14,6 @@ function App() {
 
   const handleChange = (e) => {
     const capitalizedValue = e.target.value
-      .toLowerCase()
       .split(" ")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
@@ -34,7 +33,7 @@ function App() {
     }
 
     let found = todoList.find((value) => {
-      return value.toLowerCase().trim().includes(newTask.toLowerCase().trim());
+      return value.toLowerCase().trim() === newTask.toLowerCase().trim();
     });
     if (found) {
       toast(`${newTask} is Already Added`);
